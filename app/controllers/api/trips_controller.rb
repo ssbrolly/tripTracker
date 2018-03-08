@@ -4,7 +4,7 @@ class Api::TripsController < ApplicationController
   end
 
   def create
-    trip = Trip.new(rip_params)
+    trip = Trip.new(trip_params)
     if trip.save
       render json: trip
     else
@@ -14,8 +14,11 @@ class Api::TripsController < ApplicationController
 
   def update
     trip = Trip.find(params[:id])
-    trip.update(complete: !trip.complete)
+    trip.update(name: params[:name])
     render json: trip
+    # trip = Trip.find(params[:id])
+    # trip.update(complete: !trip.complete)
+    # render json: trip
   end
 
   def destroy
