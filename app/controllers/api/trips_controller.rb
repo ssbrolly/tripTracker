@@ -12,6 +12,10 @@ class Api::TripsController < ApplicationController
     end
   end
 
+  def show
+    @trip = Trip.find(params[:id])
+  end
+
   def update
     trip = Trip.find(params[:id])
     trip.update(name: params[:name])
